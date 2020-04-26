@@ -1,0 +1,43 @@
+﻿<Window x:Class="Calculator_Area1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator_Area1"
+        mc:Ignorable="d"
+        Title="Calculator Area" Height="400" Width="450">
+    <Grid x:Name="LayoutRoot" Margin="10,10,10,10" RenderTransformOrigin="0.401,0.499">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180*"/>
+            <RowDefinition Height="169*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock HorizontalAlignment="Left" Height="33" Margin="26,28,0,0" TextWrapping="Wrap" Text="Figure :" VerticalAlignment="Top" Width="56" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="115,106,0,0" TextWrapping="Wrap"  FontSize="16" FontWeight="Bold" VerticalAlignment="Top" Height="27" Width="106" Grid.Row="1"><Run Text="  "/><Run Text="Result Area :"/></TextBlock>
+        <TextBlock x:Name="ResultNumber" HorizontalAlignment="Left" Height="24" Margin="236,106,0,0" TextWrapping="Wrap" FontSize="16" FontWeight="Bold" VerticalAlignment="Top" Width="66" Grid.Row="1"/>
+        <Button Content="Calculate" HorizontalAlignment="Left" Height="37" Margin="26,22,0,0" VerticalAlignment="Top" Width="195" FontSize="16" Grid.Row="1" Click="Calculate_Click"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Height="37" Margin="250,22,0,0" VerticalAlignment="Top" Width="121" FontSize="16" Grid.Row="1" Click="Clear_Click"/>
+
+        <Canvas x:Name="CanTriangle" Visibility="Hidden" TextBlock.FontSize="16" Grid.RowSpan="2">
+            <TextBlock HorizontalAlignment="Left" Margin="21,94,0,0" TextWrapping="Wrap" Text="Side 1 =" VerticalAlignment="Top" Width="61" Height="22" RenderTransformOrigin="1.346,0.711" Visibility="Visible"/>
+            <TextBlock HorizontalAlignment="Left" Margin="21,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" Height="22" RenderTransformOrigin="0.011,-0.216" Text="Side 2 =" Visibility="Visible"/>
+            <TextBlock HorizontalAlignment="Left" Margin="21,150,0,0" TextWrapping="Wrap" Text="Side 3 =" VerticalAlignment="Top" Width="61" Height="22" RenderTransformOrigin="1.346,0.711" Visibility="Visible"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Height="22" RenderTransformOrigin="1.346,0.711" Visibility="Visible" Canvas.Left="21" Canvas.Top="253" Text="Rectangular Triangle"/>
+            <TextBox x:Name="Side1" HorizontalAlignment="Left" Height="22" Margin="115,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Visibility="Visible" PreviewTextInput="textBox_PreviewTextInput" />
+            <TextBox x:Name="Side2" HorizontalAlignment="Left" Height="22" Margin="115,123,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="134" Visibility="Visible" PreviewTextInput="textBox_PreviewTextInput"/>
+            <TextBox x:Name="Side3" HorizontalAlignment="Left" Height="22" Margin="115,153,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="134" Visibility="Visible" PreviewTextInput="textBox_PreviewTextInput"/>
+            <CheckBox x:Name="RecTriangle" Content="" Canvas.Left="204" Canvas.Top="259" IsEnabled="False" IsChecked="False" />
+
+        </Canvas>
+        <Canvas x:Name="CanRadius" TextBlock.FontSize="16"  Margin="52,98,51,10" RenderTransformOrigin="0.508,0.446">
+            <TextBlock HorizontalAlignment="Left" Margin="49,10,0,0" TextWrapping="Wrap" Text="Radius :" VerticalAlignment="Top"/>
+            <TextBox x:Name="Radius" Height="23" Canvas.Left="123" TextWrapping="Wrap"  Canvas.Top="8" Width="120" PreviewTextInput="textBox_PreviewTextInput"/>
+
+        </Canvas>
+        <ComboBox Name="figure" Height="33" VerticalAlignment="Top" FontSize="16" Margin="0,28,71,0" HorizontalAlignment="Right" Width="264" SelectedIndex="0" SelectionChanged="figure_SelectionChanged">
+            <ComboBoxItem Content="Circle" />
+            <ComboBoxItem Content="Triangle" />
+        </ComboBox>
+    </Grid>
+
+</Window>
