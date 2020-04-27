@@ -20,12 +20,12 @@ namespace Calculator_Area1
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-       
+    { 
         public MainWindow()
         {
             InitializeComponent();
         }
+
         private void Calculate_Click(object sender, RoutedEventArgs e)
         {
             double a, b, c, d;          
@@ -35,35 +35,30 @@ namespace Calculator_Area1
                     if (!Radius.Text.Equals(""))
                      { 
                         d = double.Parse(Radius.Text);
-                        ResultNumber.Text = arearadius(d).ToString();
-                    
-                }
+                        ResultNumber.Text = arearadius(d).ToString();                    
+                     }
                     else
                     {
-                     MessageBox.Show("Вы не ввели все необходимые данные!!", "Внимание");
-                     }
-                   
+                        MessageBox.Show("Вы не ввели все необходимые данные!!", "Внимание");
+                    }                   
                 }
                 else if (figure.SelectedIndex == 1)
                 {
-                if ((!Side1.Text.Equals("")) || (!Side2.Text.Equals("")) || (!Side3.Text.Equals("")))
-                {
-                    a = double.Parse(Side1.Text);
-                    b = double.Parse(Side2.Text);
-                    c = double.Parse(Side3.Text);
-                    ResultNumber.Text = areatriangl(a, b, c).ToString();
-                    RecTriangle.IsChecked = recTriangle(a, b, c);
+                     if ((!Side1.Text.Equals("")) || (!Side2.Text.Equals("")) || (!Side3.Text.Equals("")))
+                     {
+                        a = double.Parse(Side1.Text);
+                        b = double.Parse(Side2.Text);
+                        c = double.Parse(Side3.Text);
+                        ResultNumber.Text = areatriangl(a, b, c).ToString();
+                        RecTriangle.IsChecked = recTriangle(a, b, c);
+                     }
+                     else
+                     {
+                        MessageBox.Show("Вы не ввели все необходимые данные!!", "Внимание");
+                     }
                 }
-                else
-                {
-                    MessageBox.Show("Вы не ввели все необходимые данные!!", "Внимание");
-                }
-
-                }
-            
-            
-            
         }
+
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             if (figure.SelectedIndex == 0)
@@ -79,6 +74,7 @@ namespace Calculator_Area1
             }
             ResultNumber.Text = null;
         }
+
         private double areatriangl(double a, double b, double c)
         {
             double result;
@@ -92,7 +88,7 @@ namespace Calculator_Area1
         }
         private bool recTriangle(double a, double b, double c)
         {
-            return (c == Math.Sqrt(Math.Pow(b, 2) + Math.Pow(a, 2)) ||
+                return (c == Math.Sqrt(Math.Pow(b, 2) + Math.Pow(a, 2)) ||
                 b == Math.Sqrt(Math.Pow(c, 2) + Math.Pow(a, 2)) ||
                 a == Math.Sqrt(Math.Pow(b, 2) + Math.Pow(c, 2)));
         }
@@ -116,8 +112,7 @@ namespace Calculator_Area1
             }            
         }
         private void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-           
+        {           
             if (!Char.IsDigit(e.Text, 0))
             {
                 e.Handled = true;
